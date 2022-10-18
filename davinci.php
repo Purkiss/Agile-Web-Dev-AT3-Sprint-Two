@@ -35,7 +35,7 @@ include_once('nav.php');
               $sqlArtist = "SELECT * FROM artists WHERE name = 'Leonardo da Vinci'";
               foreach ($db->query($sqlArtist) as $row) {
                 echo '<td>' .
-            	    	'<center><img src = "data:image/png;base64,' . $row['image'] . '"/></center>'
+            	    	'<center><img src = "data:image/png;base64,' . $row['portrait'] . '"/></center>'
             	    	. '</td>';
               }
 			  
@@ -64,6 +64,7 @@ include_once('nav.php');
 			}
 			
 		?>
+     </table>
 <br>
 <br>
 <br>
@@ -74,7 +75,6 @@ include_once('nav.php');
 		  <th>Title</th>
 		  <th>Ye‎ar</th> <!-- if it doesn't work, check this -->
 		  <th>Media</th>
-		  <th>Artist</th>
 		  <th>Style</th>
 	    </thead>
 	
