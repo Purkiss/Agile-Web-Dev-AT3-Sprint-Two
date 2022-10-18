@@ -24,38 +24,30 @@
 include_once('nav.php');
 ?>
 	<div class="container">
-	  <table class="table">
-	    <thead>
-		  <th>ID</th>
-		  <th>Image</th>
-		  <th>Title</th>
-		  <th>Ye‎ar</th> <!-- if it doesn't work, check this -->
-		  <th>Media</th>
-		  <th>Artist</th>
-		  <th>Style</th>
-	    </thead>
-		<tbody>
+	<tbody>
+
 		  <?php
 		   include_once('connection.php');
 
-            $databaseArtist = new Connection();
-            $dbArtist = $databaseArtist->open();          
+            $database = new Connection();
+            $db = $database->open();          
             try{	
               $sqlArtist = "SELECT * FROM artists WHERE name = 'Leonardo da Vinci'";
-              foreach ($dbArtist->query($sqlArtist) as $row) {
+              foreach ($db->query($sqlArtist) as $row) {
                 echo '<td>' .
             	    	'<center><img src = "data:image/png;base64,' . $row['image'] . '"/></center>'
             	    	. '</td>';
               }
-			   <table class="table">
+			  
 			?>
+	 <table class="table">
 	    <thead>
 		  <th>ID</th>
 		  <th>Artist Name</th>
 		  <th>Life Span</th>
 		  <th>Style</th>	
 	    </thead>
-		<tbody>
+		
 		  <?php
 			  foreach ($db->query($sqlArtist) as $row) {
 				echo '<tr>';
@@ -75,11 +67,20 @@ include_once('nav.php');
 <br>
 <br>
 <br>
+	  <table class="table">
+	    <thead>
+		  <th>ID</th>
+		  <th>Image</th>
+		  <th>Title</th>
+		  <th>Ye‎ar</th> <!-- if it doesn't work, check this -->
+		  <th>Media</th>
+		  <th>Artist</th>
+		  <th>Style</th>
+	    </thead>
+	
 		<?php		
 		    
 
-			$database = new Connection();
-    		$db = $database->open();
 			try{	
 			  $sql = "SELECT * FROM content WHERE artist = 'Leonardo da Vinci'";
 			  foreach ($db->query($sql) as $row) {
