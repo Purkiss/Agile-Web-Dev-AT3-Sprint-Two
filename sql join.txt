@@ -1,0 +1,4 @@
+SELECT content.id, content.image, content.title, content.year, content.media, content.style, content.thumbnail, content.artist, artists.id, artist.name, artist.lifespan, artist.thumbnail, artist.portrait, artist.style
+FROM content
+INNER JOIN artists ON content.artist=artist.id
+WHERE artist.name="Renoir";
