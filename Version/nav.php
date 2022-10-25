@@ -50,8 +50,8 @@ echo '<nav class="navbar navbar-inverse">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Artists by Media
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="oil.php">Oil</a></li>
-		  <li><a href="pen-ink.php">Pen Ink</a></li>
+          <li><a href="artists-oil.php">Oil</a></li>
+		  <li><a href="artists-pen-ink.php">Pen Ink</a></li>
         </ul>
       </li>
     </ul>
