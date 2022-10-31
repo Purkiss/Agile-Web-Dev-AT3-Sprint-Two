@@ -27,13 +27,16 @@ if (isset($_POST['update'])) {
 		// HTML "file" input can't access the full filepath for security reasons, only gives 'portrait.png'
 		// Use $fullPath variable in conjunction with "file" input to generate a full filepath
 		// *** CHANGE THIS TO SUIT THE SERVER'S FILE STRUCTURE ***
-		$fullPath = 'C:\Users\James\Documents\xampp\htdocs\at3-2\images\\';
+    	$fullPath = '/var/www/at_three_sprint_two/images/';
 		
 		$thumbnailFullPath = $fullPath . $thumbnailPath;
 		$portraitFullPath = $fullPath . $portraitPath;
 		
 		$thumbnail_64 = base64_encode(file_get_contents($thumbnailFullPath));
 		$portrait_64 = base64_encode(file_get_contents($portraitFullPath));
+    
+		//$thumbnail_64 = base64_encode(file_get_contents($thumbnailPath));
+		//$portrait_64 = base64_encode(file_get_contents($portraitPath));
 		
 		$sql = "UPDATE artists SET thumbnail = :thumbnail, portrait = :portrait WHERE id = :id;";
 		
