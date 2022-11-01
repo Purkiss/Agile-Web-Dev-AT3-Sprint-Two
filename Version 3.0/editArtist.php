@@ -118,8 +118,8 @@ else if (isset($_POST['delete'])) {
 <th></th>
 <th>Name</th>
 <th>Lifespan</th>
-<th>Thumbnail</th>
-<th>Portrait</th>
+<!--<th>Thumbnail</th>-->
+<!--<th>Portrait</th>-->
 <th>Style</th>
 </thead>
 		<tbody>
@@ -127,11 +127,10 @@ else if (isset($_POST['delete'])) {
 			  foreach ($db->query($sql) as $row) {
 				echo '<tr><form action="" method="POST">';
             	echo '<td> <input type="text" hidden=true size=22 id="myid" name="id" value="' . $row['id'] . '"/> </td>';
-
             	echo '<td> <input type="text" size=22 id="myname" name="name" value="' . $row['name'] . '"/> </td>';
             	echo '<td> <input type="text" size=8 id="mylifespan" name="lifespan" value="' . $row['lifespan'] . '"/> </td>';
-            	echo '<td> <label for="mythumbnail">Select a file:</label><input type="file" size=15 id="mythumbnail" name="thumbnail" value="' . $row['thumbnail'] . '"/> </td>';
-				echo '<td> <label for="myportrait">Select a file:</label><input type="file" size=15 id="myportrait" name="portrait" value="' . $row['portrait'] . '"/> </td>';
+            	//echo '<td> <label for="mythumbnail">Select a file:</label><input type="file" size=15 id="mythumbnail" name="thumbnail" value="' . $row['thumbnail'] . '"/> </td>';
+				//echo '<td> <label for="myportrait">Select a file:</label><input type="file" size=15 id="myportrait" name="portrait" value="' . $row['portrait'] . '"/> </td>';
 				// echo '<td> <input type="text" size=10 id="mythumbnail" name="thumbnail" value="' . $row['thumbnail'] . '"/> </td>';	
 				// echo '<td> <input type="text" size=10 id="myportrait" name="portrait" value="' . $row['portrait'] . '"/> </td>';	
             	echo '<td> <input type="text" size=10 id="mystyle" name="style" value="' . $row['style'] . '"/> </td>';	
