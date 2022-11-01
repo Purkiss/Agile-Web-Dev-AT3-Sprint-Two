@@ -13,9 +13,21 @@ include_once('connection.php');
     $artist = $_POST['artist'];
     $style = $_POST['style'];
   	$thumbnail = $_POST['thumbnail'];
+  
+    // PHP file_get_contents() function requires the full filepath to work, e.g. 'C:\Desktop\portrait.png'
+	// HTML "file" input can't access the full filepath for security reasons, only gives 'portrait.png'
+	// Use $fullPath variable in conjunction with "file" input to generate a full filepath
+	// *** CHANGE THIS TO SUIT THE SERVER'S FILE STRUCTURE ***
+    $fullPath = '/var/www/at_three_sprint_two/images/';
+		
+	$imageFullPath = $fullPath . $image;
+	$thumbnailFullPath = $fullPath . $thumbnail;
+		
+	$image_64 = base64_encode(file_get_contents($imageFullPath));
+	$thumbnail_64 = base64_encode(file_get_contents($thumbnailFullPath));
 
     try {
-        $sql = "INSERT INTO `content`(`image`, `title`, `year`, `media`, `artist`, `style`, `thumbnail`) VALUES ('$image','$title','$year','$media','$artist','$style','$thumbnail')";
+        $sql = "INSERT INTO `content`(`image`, `title`, `year`, `media`, `artist`, `style`, `thumbnail`) VALUES ('$image_64','$title','$year','$media','$artist','$style','$thumbnail_64')";
         $result = $db->query($sql);
 		echo "New work of art added to database";
     } catch(PDOException $e) {
@@ -59,13 +71,13 @@ include_once('connection.php');
 <tbody>
 <tr>
 <form action="" method="POST">
-<td><input type="text" size=10 name="image" value="test"></td>
+<td><label for="myimage">Select a file:</label><input type="file" size=15 id="myimage" name="image" value=""/> </td>
 <td><input type="text" size=10 name="title" value="test"></td>
 <td><input type="text" size=1 name="year" value="1999"></td>
 <td><input type="text" size=10 name="media" value="test"></td>
 <td><input type="text" size=10 name="artist" value="1"></td>
 <td><input type="text" size=10 name="style" value="test"></td>
-<td><input type="text" size=10 name="thumbnail" value="test"></td>
+<td><label for="mythumbnail">Select a file:</label><input type="file" size=15 id="mythumbnail" name="thumbnail" value=""/> </td>
 <td><input type="submit" size=10 name="submit" value="Create"></td>
 </form>
 </tr>
